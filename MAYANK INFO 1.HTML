@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Timepieces</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      color: #1a1a1a;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #006400, #2c6b2f); /* Primum Green */
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 4rem;
+      margin: 0;
+      letter-spacing: 2px;
+      color: #fff; /* White text for better contrast */
+    }
+
+    header p {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 10px;
+      color: #f4f4f4; /* Light gray for better contrast */
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #2c6b2f; /* Primum Green */
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: white;
+      margin: 0 25px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #f4f4f4;
+      text-decoration: underline;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://via.placeholder.com/1500x800') no-repeat center center/cover;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h2 {
+      font-size: 4.5rem;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px 50px;
+      border-radius: 10px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    /* Product Grid */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      padding: 80px 40px;
+      background: #fff;
+    }
+
+    .product-card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 15px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .product-card h3 {
+      font-size: 1.8rem;
+      margin: 20px 0;
+      color: #2c6b2f; /* Primum Green */
+    }
+
+    .product-card p {
+      color: #666;
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+
+    .product-card button {
+      background: #006400; /* Primum Green */
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      transition: background-color 0.3s;
+      border-radius: 5px;
+    }
+
+    .product-card button:hover {
+      background: #2c6b2f; /* Darker Primum Green */
+    }
+
+    /* Policies Section */
+    .policies {
+      background-color: #f9f9f9;
+      padding: 60px 40px;
+      margin: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .policies h2 {
+      font-size: 3rem;
+      color: #1a1a1a;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .policies p {
+      font-size: 1.2rem;
+      margin: 15px 0;
+      line-height: 1.8;
+    }
+
+    /* Contact Section */
+    .contact {
+      background: #fff;
+      padding: 60px 40px;
+      margin: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact h2 {
+      font-size: 3rem;
+      color: #1a1a1a;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact input, .contact textarea {
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .contact input:focus, .contact textarea:focus {
+      outline: none;
+      border-color: #2c6b2f;
+    }
+
+    .contact button {
+      background: #006400; /* Primum Green */
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: background-color 0.3s;
+      border-radius: 5px;
+    }
+
+    .contact button:hover {
+      background: #2c6b2f; /* Darker Primum Green */
+    }
+
+    /* Footer */
+    footer {
+      background: #2c6b2f;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      margin-top: 80px;
+    }
+
+    footer p {
+      font-size: 1.2rem;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .fade-in {
+      animation: fadeIn 2s ease-in;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Royal Timepieces</h1>
+    <p>Luxury Watches Crafted to Perfection</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#policies">Policies</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Timeless Elegance, Redefined</h2>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="products">
+    <div class="product-card fade-in">
+      <img src="https://diamondsourcenyc.com/cdn/shop/products/Rolex-Daytona-Rainbow-Watch-ref-116595RBOW.jpg?v=1708041552" alt="Watch 1">
+      <h3>Royal Classic</h3>
+      <p>MRP: $10,000 | SP: $8,500</p>
+      <a href="file:///C:/Users/nitin/OneDrive/Documents/pd%20.html"><button>View Product</button></a>
+    </div>
+    <div class="product-card fade-in">
+      <img src="https://www.medusa.jewelry/cdn/shop/products/rolex-cosmograph-daytona-40mm-rainbow-montre-or-rose-bijoux-medusa-homme-quebec-canada-662_800x.jpg?v=1596252070" alt="Watch 2">
+      <h3>Elite Chrono</h3>
+      <p>MRP: $12,000 | SP: $10,000</p>
+      <a href="file:///C:/Users/nitin/OneDrive/Documents/pd%20.html"><button>View Product</button></a>
+    </div>
+    <div class="product-card fade-in">
+      <img src="https://watchexchange.sg/wp-content/uploads/2023/11/most-expensive-rolex-.jpg" alt="Watch 3">
+      <h3>Supreme Edition</h3>
+      <p>MRP: $15,000 | SP: $12,500</p>
+      <a href="file:///C:/Users/nitin/OneDrive/Documents/pd%20.html"><button>View Product</button></a>
+    </div>
+  </section>
+
+  <!-- Policies Section -->
+  <section id="policies" class="policies">
+    <h2>Our Policies</h2>
+    <h3>1. Warranty Policy</h3>
+    <p><strong>Standard Warranty:</strong> Luxury watches typically come with a 2-5 year warranty covering defects in materials or workmanship. The warranty is generally valid from the date of purchase.</p>
+    <p><strong>Exclusions:</strong> Warranty typically doesn’t cover damage due to wear and tear, accidents, unauthorized repairs, or water damage (unless the watch is water-resistant to a certain depth).</p>
+    <p><strong>Service Centers:</strong> Warranty services must be done at authorized service centers to maintain authenticity and preserve the warranty.</p>
+
+    <h3>2. Return and Exchange Policy</h3>
+    <p><strong>Time Frame:</strong> Some luxury watch brands offer a 14 to 30-day return or exchange window, while others may not accept returns. However, the item must be unused and in its original condition and packaging.</p>
+    <p><strong>Conditions:</strong> Returns and exchanges might only be allowed for defective products. Certain brands have a strict no-return policy unless the watch is faulty or damaged.</p>
+    <p><strong>Restocking Fees:</strong> Certain brands may impose a restocking fee on returns of luxury watches, especially after the watch has been sized or engraved.</p>
+
+    <h3>3. Authenticity and Certification</h3>
+    <p><strong>Authenticity Certificate:</strong> Upon purchase, luxury watches usually come with a certificate of authenticity, guaranteeing the watch is genuine.</p>
+    <p><strong>Serial Number:</strong> Each luxury watch will have a unique serial number that can be used to verify its authenticity. Brands like Rolex, Patek Philippe, and Omega have their own verification systems.</p>
+    <p><strong>Authorized Dealers:</strong> Always buy from authorized dealers to ensure the watch is genuine and comes with full brand support.</p>
+
+    <h3>4. Pricing and Payment Policy</h3>
+    <p><strong>Retail Price:</strong> Luxury watch brands usually set a recommended retail price (RRP), and any authorized dealer should adhere to it. However, the price may vary depending on taxes, import duties, and location.</p>
+    <p><strong>Custom Duties and Taxes:</strong> When purchasing luxury watches in India, be aware of import duties (typically 30-35% on luxury items), GST, and other taxes that could increase the final price.</p>
+    <p><strong>Financing Options:</strong> Some luxury brands may offer financing or EMI options, especially for high-value items, making it easier for customers to purchase watches over time.</p>
+
+    <h3>5. Customization Policy</h3>
+    <p><strong>Engraving and Personalization:</strong> Many luxury watch brands offer engraving services for personalization, often at an additional cost.</p>
+    <p><strong>Customization Limits:</strong> Customizations are usually limited to the watch face, strap materials, and engraving. However, extensive custom modifications are often not allowed under the brand’s guidelines to maintain brand identity and value.</p>
+
+    <h3>6. Repair and Maintenance Policy</h3>
+    <p><strong>Authorized Service Centers:</strong> For any repairs or servicing, it’s essential to visit authorized service centers. Using non-authorized services can void the warranty.</p>
+    <p><strong>Servicing Frequency:</strong> Luxury watches should ideally be serviced every 3-5 years, depending on the brand and type (e.g., mechanical vs. quartz).</p>
+    <p><strong>Parts Replacement:</strong> Original parts should be used for repairs and servicing to maintain the watch's integrity and value.</p>
+
+    <h3>7. Security and Insurance Policy</h3>
+    <p><strong>Insurance:</strong> Some luxury watch owners choose to insure their timepieces, especially high-value pieces. Insurance covers theft, loss, or accidental damage.</p>
+    <p><strong>Storage and Care:</strong> Luxury watches should be stored in safe places (preferably in a watch box with proper humidity and temperature control). Watch winders are also used for automatic watches to keep them running smoothly.</p>
+
+    <h3>8. Delivery and Shipping Policy</h3>
+    <p><strong>International Shipping:</strong> Luxury watch brands often ship globally, but shipping can be expensive due to insurance costs, especially for high-value watches.</p>
+    <p><strong>Packaging:</strong> Watches will be shipped with premium packaging, including branded boxes and certificates, to preserve their value.</p>
+    <p><strong>Delivery Timelines:</strong> Delivery timelines for luxury watches, especially if they are customized or limited edition, can take several weeks or even months.</p>
+
+    <h3>9. Customer Support Policy</h3>
+    <p><strong>After-Sales Service:</strong> Brands like Rolex, Patek Philippe, and others have dedicated customer service teams for handling inquiries, complaints, or servicing.</p>
+    <p><strong>Online Support:</strong> Many luxury watch brands now offer online chat support or phone support to answer customer queries regarding their purchases, warranties, or services.</p>
+    <p><strong>International Support:</strong> For customers who travel, many luxury watch brands offer international support, meaning your warranty is valid across different countries.</p>
+
+    <h3>10. Resale Policy (Secondary Market)</h3>
+    <p><strong>Authorized Resale:</strong> Some luxury brands, such as Rolex, do not officially support the resale of their watches. However, watches from reputable sources like authorized retailers or certified pre-owned sellers maintain their authenticity.</p>
+    <p><strong>Value Retention:</strong> Luxury watches can often appreciate in value, particularly limited-edition models or vintage pieces. Customers may choose to sell or trade their watches, often through established auction houses or secondary market dealers.</p>
+    <p><strong>Pre-Owned Watches:</strong> Many luxury brands have started offering pre-owned watches with certified authenticity and warranty, ensuring that buyers get reliable pieces even in the secondary market.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form action="#" method="post">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2023 Royal Timepieces. All rights reserved.</p>
+  </footer>
+</body>
+</html>
